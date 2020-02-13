@@ -1,0 +1,28 @@
+server:
+  port: 8086
+  servlet:
+    context-path: /custerm
+
+spring:
+  application:
+    name: springcloud-custerm
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka1:8043/eureka/
+feign:
+  hystrix:
+    enabled: true
+
+#超时时间
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+
+
+#ribbon的超时时间

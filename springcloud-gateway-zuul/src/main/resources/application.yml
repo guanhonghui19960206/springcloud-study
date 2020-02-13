@@ -1,0 +1,36 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: springcloud-gateway
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8044/eureka/
+  instance:
+    prefer-ip-address: true
+
+
+#自定义路由
+#zuul.routes.myProduct  这里的myProduct 可以随意定义的,没关系
+
+
+#敏感头, 设置为空就可以传递cookie信息了
+#zuul.routes.myProduct.sensitive-headers=null
+
+#所有的配置都传递cookie,不用zuul.routes.myProduct.sensitive-headers=null了
+#全部忽略
+#zuul.sensitive-headers=null
+
+
+#查看所有zuul的配置,权限配置,查看zuul的路由规则
+#http://localhost:9000/application/routes
+#management.security.enabled=false
+
+
+zuul:
+  routes:
+    myproject:
+      path: /MyProject/**
+      service-id: springcloud-provider

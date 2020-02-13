@@ -1,0 +1,15 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /custerm
+
+spring:
+  application:
+    name: springcloud-custerm
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8044/eureka/
+
+debug: true
